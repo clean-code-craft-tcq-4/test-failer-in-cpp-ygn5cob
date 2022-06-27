@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <string.h>
 #include <map>
+#include <iomanip>
 
 std::map<std::pair<std::string, std::string>, int> colorPairManual;
 std::map<std::pair<std::string, std::string>, int> colorPair;
@@ -22,10 +23,24 @@ int printColorMap() {
 int printColorMapManual() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
+    int maxWdth = 6;
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-            std::cout << i * 5 + j+1 << " | " << majorColor[i] << " | " << minorColor[j] << "\n";
+            if(i * 5 + j+1 < 10)
+            {
+                int diff = maxWdth - strlen(majorColor[i]);
+                std::string tmp(diff, ' ');
+                std::cout << 0 << i * 5 + j+1 << " | " << majorColor[i] << tmp << " | " << minorColor[j] << "\n";
+            }
+            
+            else
+            {
+                int diff = maxWdth - strlen(majorColor[i]);
+                std::string tmp(diff, ' ');
+                std::cout << i * 5 + j+1 << " | " << majorColor[i] << tmp << " | " << minorColor[j] << "\n";
+            }
+            
             colorPairManual.insert(std::make_pair(std::make_pair(majorColor[i], minorColor[j]),(i * 5 + j+1)));  
         }
     }
@@ -56,14 +71,14 @@ bool testColorAlignment()
         else return false;
 
    }
-   return true;    
+   return false;    
 }
 
 int main() {
 
-    std::cout << "Printing colormap manual";
+    std::cout << "Printing colormap manual" << "\n";
     printColorMapManual();
-    std::cout << "Testing the actual implementation";
+    std::cout << "Testing the actual implementation" << "\n";
     int result = printColorMap();
     assert(result == 25);
     bool output = testColorAlignment();
