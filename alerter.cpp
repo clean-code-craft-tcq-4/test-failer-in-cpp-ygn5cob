@@ -24,8 +24,8 @@ void alertInCelcius(float farenheit) {
         // let us keep a count of failures to report
         // However, this code doesn't count failures!
         // Add a test below to catch this bug. Alter the stub above, if needed.
-        std::cout << "All is well \n";
         alertFailureCount += 0;
+        std::cout << alertFailureCount << " alertFailureCount \n";
     }
 }
 
