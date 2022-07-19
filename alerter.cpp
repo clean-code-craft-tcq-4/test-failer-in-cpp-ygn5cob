@@ -3,7 +3,7 @@
 
 #define THRESHOLD 250
 
-int alertFailureCount = 0;
+static int alertFailureCount = 0;
 
 int networkAlertStub(float celcius) {
     std::cout << "ALERT: Temperature is " << celcius << " celcius.\n";
