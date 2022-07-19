@@ -85,7 +85,7 @@ bool testColorAlignment()
         else return false;
 
    }
-   return false;    
+   return true;    
 }
 
 int main() {
@@ -97,7 +97,7 @@ int main() {
     assert(result == 25);
     bool output = testColorAlignment();
     std::cout << "output"<< output << "\n";
-//    assert(true == output);
+    assert(true == output);
     
     std::cout << "All is well (maybe!)\n";
     return 0;
