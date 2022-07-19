@@ -96,6 +96,7 @@ int main() {
     int result = printColorMap();
     assert(result == 25);
     bool output = testColorAlignment();
+    std::cout << "output"<< output << "\n";
 //    assert(true == output);
     
     std::cout << "All is well (maybe!)\n";
