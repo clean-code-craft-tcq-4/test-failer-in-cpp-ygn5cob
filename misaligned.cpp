@@ -10,11 +10,25 @@ std::map<std::pair<std::string, std::string>, int> colorPair;
 int printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
+    int maxWdth = 6;
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-            std::cout << i * 5 + j+1 << " | " << majorColor[i] << " | " << minorColor[i] << "\n";
-            colorPair.insert(std::make_pair(std::make_pair(majorColor[i], minorColor[j+1]),(i * 5 + j)));
+            if(i * 5 + j+1 < 10)
+            {
+                int diff = maxWdth - strlen(majorColor[i]);
+                std::string tmp(diff, ' ');
+                std::cout << 0 << i * 5 + j+1 << " | " << majorColor[i] << tmp << " | " << minorColor[j] << "\n";
+            }
+            
+            else
+            {
+                int diff = maxWdth - strlen(majorColor[i]);
+                std::string tmp(diff, ' ');
+                std::cout << i * 5 + j+1 << " | " << majorColor[i] << tmp << " | " << minorColor[j] << "\n";
+            }
+            
+            colorPairManual.insert(std::make_pair(std::make_pair(majorColor[i], minorColor[j]),(i * 5 + j+1)));  
         }
     }
     return i * j;
