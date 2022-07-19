@@ -13,8 +13,8 @@ int printColorMap() {
     int i = 0, j = 0;
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
-            std::cout << i * 5 + j << " | " << majorColor[i] << " | " << minorColor[i] << "\n";
-            colorPair.insert(std::make_pair(std::make_pair(majorColor[i], minorColor[j]),(i * 5 + j)));
+            std::cout << i * 5 + j+1 << " | " << majorColor[i] << " | " << minorColor[i] << "\n";
+            colorPair.insert(std::make_pair(std::make_pair(majorColor[i], minorColor[j+1]),(i * 5 + j)));
         }
     }
     return i * j;
