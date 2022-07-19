@@ -33,7 +33,7 @@ int main() {
     assert(alertFailureCount == 0);
     alertInCelcius(532.6);
     std::cout << alertFailureCount << " alerts failed.\n";
-//    assert(alertFailureCount == 1);
+    assert(alertFailureCount == 1);
     std::cout << "All is well (maybe!)\n";
     return 0;
 }
